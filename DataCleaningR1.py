@@ -28,7 +28,7 @@ demographics = demographics[['GEO_ID', 'NAME', 'DP05_0001E', 'DP05_0002E', 'DP05
 econmetrics = pd.read_csv("BayArea_EconMetrics/ACSDP5Y2023.DP03-Data.csv")
 econmetrics = econmetrics[['GEO_ID', 'NAME', 'DP03_0001E', 'DP03_0002E', 'DP03_0003E', 'DP03_0004E', 'DP03_0005E', 'DP03_0007E', 'DP03_0033E',
 'DP03_0034E', 'DP03_0035E', 'DP03_0036E', 'DP03_0037E', 'DP03_0038E', 'DP03_0039E', 'DP03_0040E', 'DP03_0041E', 'DP03_0042E', 'DP03_0043E',
-'DP03_0044E', 'DP03_0045E', 'DP03_0052E', 'DP03_0052E', 'DP03_0053E', 'DP03_0054E', 'DP03_0055E', 'DP03_0056E', 'DP03_0057E', 'DP03_0058E',
+'DP03_0044E', 'DP03_0045E', 'DP03_0051E', 'DP03_0052E', 'DP03_0053E', 'DP03_0054E', 'DP03_0055E', 'DP03_0056E', 'DP03_0057E', 'DP03_0058E',
 'DP03_0059E', 'DP03_0060E', 'DP03_0061E', 'DP03_0062E', 'DP03_0075E', 'DP03_0076E', 'DP03_0077E', 'DP03_0078E', 'DP03_0079E', 'DP03_0080E',
 'DP03_0081E', 'DP03_0082E', 'DP03_0083E', 'DP03_0084E', 'DP03_0085E', 'DP03_0086E']]
 
@@ -44,7 +44,7 @@ households = households[['GEO_ID', 'NAME', 'S1101_C01_001E', 'S1101_C01_002E', '
 'S1101_C04_012E', 'S1101_C04_013E', 'S1101_C04_014E', 'S1101_C05_001E', 'S1101_C05_002E', 'S1101_C05_003E', 'S1101_C05_004E', 'S1101_C05_005E', 'S1101_C05_006E', 'S1101_C05_007E', 'S1101_C05_008E', 'S1101_C05_009E', 'S1101_C05_010E', 'S1101_C05_011E',
 'S1101_C05_012E', 'S1101_C05_013E', 'S1101_C05_014E']]
 
-demographics = clean_and_save(demographics, 'CleanedData/demographics.csv')
-econmetrics = clean_and_save(econmetrics, 'CleanedData/econmetrics.csv')
-education = clean_and_save(education, 'CleanedData/education.csv')
-households = clean_and_save(households, 'CleanedData/households.csv')
+clean_and_save(demographics, 'CleanedData/demographics.csv')
+clean_and_save(econmetrics, 'CleanedData/econmetrics.csv')
+clean_and_save(education, 'CleanedData/education.csv')
+clean_and_save(households, 'CleanedData/households.csv')
