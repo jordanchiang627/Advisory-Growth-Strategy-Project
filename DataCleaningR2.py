@@ -88,9 +88,9 @@ households_cleaned.columns = remove_and_replace(
 households_cleaned.columns = [
     re.sub(r'([a-z])([A-Z])', r'\1: \2', col).strip() for col in households_cleaned.columns
 ]
-print("Cleaned Households Names:", households_cleaned.columns.tolist())
+# print("Cleaned Households Names:", households_cleaned.columns.tolist())
 
-#save_csv(demographics_cleaned, "CleanedDataR2/demogrpahics_r2.csv")
-#save_csv(econmetrics_cleaned, "CleanedDataR2/econmetrics_r2.csv")
-#save_csv(education_cleaned, "CleanedDataR2/education_r2.csv")
-#save_csv(households_cleaned, "CleanedDataR2/households_r2.csv")
+save_csv(demographics_cleaned, "CleanedDataR2/demogrpahics_r2.csv")
+save_csv(econmetrics_cleaned, "CleanedDataR2/econmetrics_r2.csv")
+save_csv(education_cleaned, "CleanedDataR2/education_r2.csv")
+save_csv(households_cleaned, "CleanedDataR2/households_r2.csv")
