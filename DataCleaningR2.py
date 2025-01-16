@@ -38,7 +38,6 @@ def save_csv(df, file_path):
 demographics_cleaned.columns = clean_column_names(demographics_cleaned.columns)
 econmetrics_cleaned.columns = clean_column_names(econmetrics_cleaned.columns)
 education_cleaned.columns = clean_column_names(education_cleaned.columns)
-households_cleaned.columns = clean_column_names(households_cleaned.columns)
 
 #print("Cleaned Econmetrics Names:", econmetrics_cleaned.columns.tolist())
 #print("Cleaned Education Names:", education_cleaned.columns.tolist())
@@ -74,6 +73,9 @@ education_cleaned.columns = remove_and_replace(
 )
 # print("Cleaned Education Names:", education_cleaned.columns.tolist())
 
+households_cleaned.columns = [
+    re.sub(r'!![A-Z ]+!!', '', col).strip() for col in households_cleaned.columns
+]
 households_cleaned.columns = remove_and_replace(
     households_cleaned.columns,
     to_remove = [
@@ -84,9 +86,9 @@ households_cleaned.columns = remove_and_replace(
     }
 )
 
-# print("Cleaned Households Names:", households_cleaned.columns.tolist())
+print("Cleaned Households Names:", households_cleaned.columns.tolist())
 
-save_csv(demographics_cleaned, "CleanedDataR2/demogrpahics_r2.csv")
-save_csv(econmetrics_cleaned, "CleanedDataR2/econmetrics_r2.csv")
-save_csv(education_cleaned, "CleanedDataR2/education_r2.csv")
-save_csv(households_cleaned, "CleanedDataR2/households_r2.csv")
+#save_csv(demographics_cleaned, "CleanedDataR2/demogrpahics_r2.csv")
+#save_csv(econmetrics_cleaned, "CleanedDataR2/econmetrics_r2.csv")
+#save_csv(education_cleaned, "CleanedDataR2/education_r2.csv")
+#save_csv(households_cleaned, "CleanedDataR2/households_r2.csv")
