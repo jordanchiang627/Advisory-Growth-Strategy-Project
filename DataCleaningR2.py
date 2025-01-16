@@ -88,6 +88,11 @@ households_cleaned.columns = remove_and_replace(
 households_cleaned.columns = [
     re.sub(r'([a-z])([A-Z])', r'\1: \2', col).strip() for col in households_cleaned.columns
 ]
+
+columns_to_drop = [col for col in households_cleaned.columns if (households_cleaned[col] == "(X)").all()]
+households_cleaned = households_cleaned.drop(columns=columns_to_drop)
+#households_cleaned = households_cleaned.loc[:, ~households_cleaned == "(X)".all()]
+
 # print("Cleaned Households Names:", households_cleaned.columns.tolist())
 
 save_csv(demographics_cleaned, "CleanedDataR2/demogrpahics_r2.csv")
