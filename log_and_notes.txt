@@ -1,2 +1,7 @@
-1/16: Data cleaning R3. Adding values from columns together to create groups. <br></br>
+1/16: Data cleaning R3. Adding values from columns together to create groups. 
 Demogrpahics- Need new/different age groups
+Econmetrics: Income by tax bracket? Other additon for certain columns tbd, need more insights
+Education: Looks solid, do not think needs cleaning 
+Households: Probably needs the most work. Might be useful to create a metadata.csv file to help gain insights
+
+Could be useful for all datasets, will need to create a a function that has that and updates as I add new columns (this step could be a challenge)
