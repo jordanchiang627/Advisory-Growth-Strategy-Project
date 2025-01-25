@@ -1,4 +1,4 @@
-Geography,Geographic Area Name,Total population,Male,Female,Dependants,Early Stage Investors,Primary Stage Investors,Working Age,Retired
-310M700US41860,"San Francisco-Oakland-Fremont, CA Metro Area",4653593,2318841,2334752,1250359,710410,1919477,2629887,773347
-310M700US41940,"San Jose-Sunnyvale-Santa Clara, CA Metro Area",1969353,1003282,966071,587717,312498,786317,1098815,282821
-310M700US46700,"Vallejo, CA Metro Area",450824,224744,226080,136854,63761,173922,237683,76287
+Geography,Geographic Area Name,Total population,Dependants,Early Stage Investors,Primary Stage Investors,Working Age,Retired
+310M700US41860,"San Francisco-Oakland-Fremont, CA Metro Area",4653593,1250359,710410,1919477,2629887,773347
+310M700US41940,"San Jose-Sunnyvale-Santa Clara, CA Metro Area",1969353,587717,312498,786317,1098815,282821
+310M700US46700,"Vallejo, CA Metro Area",450824,136854,63761,173922,237683,76287

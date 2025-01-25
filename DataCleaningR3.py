@@ -22,7 +22,7 @@ demographics["55 to 59 years"] + demographics["60 to 64 years"])
 demographics["Early Stage Investors"] = demographics["25 to 34 years"]
 
 
-demographics = demographics[['Geography', 'Geographic Area Name', 'Total population', 'Male', 'Female', 'Dependants', 'Early Stage Investors', 'Primary Stage Investors',
+demographics = demographics[['Geography', 'Geographic Area Name', 'Total population', 'Dependants', 'Early Stage Investors', 'Primary Stage Investors',
 'Working Age', 'Retired']]
 
 save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
