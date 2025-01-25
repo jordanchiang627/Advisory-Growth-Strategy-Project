@@ -5,3 +5,11 @@ Education: Looks solid, do not think needs cleaning
 Households: Probably needs the most work. Might be useful to create a metadata.csv file to help gain insights
 
 Could be useful for all datasets, will need to create a a function that has that and updates as I add new columns (this step could be a challenge)
+
+
+Long exposition explaining porportion of population 35-65 or what fits the demographic. Then take the 25-34 and the 65+ and factor that as a
+percetnage. Will be able to know what percentage of the population is within that 35-65 range and can make note of it. 
+
+Ex: 35-65 makes up x% of the population or x% of the working population. Can pull numbers from econmetrics? Since x% is of said population
+and xyz numbers is the amount of the people w x degree we can infer that x% of x% of the population is educated to x degree (will need to 
+research the math behind this for accuracy) Just for education csv?
