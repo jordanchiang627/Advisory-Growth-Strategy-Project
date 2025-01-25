@@ -10,7 +10,7 @@ def age_proportions(df, col1, col2, new_column):
     """
     This function will take column 1 and divide it by column 2 to find the wanted proportion 
     """
-    df[new_column] = (df[col1]/df[col2].replace(0, pd.NA)).round(4)
+    df[new_column] = (df[col1]/df[col2].replace(0, pd.NA)*100).round(2)
     return df
 
 demographics = pd.read_csv("CleanedDataR2/demogrpahics_r2.csv")
