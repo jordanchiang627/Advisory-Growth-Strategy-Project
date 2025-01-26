@@ -13,6 +13,10 @@ def age_proportions(df, col1, col2, new_column):
     df[new_column] = (df[col1]/df[col2].replace(0, pd.NA)*100).round(2)
     return df
 
+def sum_columns(df, columns_to_sum, new_column):
+    df[new_column] = df[columns_to_sum].sum(axis = 1)
+    return df
+
 demographics = pd.read_csv("CleanedDataR2/demogrpahics_r2.csv")
 
 demographics["Dependants"] = (demographics["Under 5 years"] + demographics["5 to 9 years"] + demographics["10 to 14 years"] + 
@@ -37,7 +41,22 @@ age_proportions(demographics, "Primary Stage Investors", "Working Age", "Primary
 demographics = demographics[['Geography', 'Geographic Area Name', 'Total population', 'Dependants', 'Dependants Proportion', 'Early Stage Investors', 'Early Stage Proportion of Working Age',
 'Primary Stage Investors', 'Primary Stage Proportion of Working Age', 'Working Age', 'Working Age Proportion', 'Retired', 'Retired Proportion']]
 
+econmetrics = pd.read_csv("CleanedDataR2/econmetrics_r2.csv")
 
+column_groups = {
+    "Low Income - Households" : ["Total households - Less than $10,000", "Total households - $10,000 to $14,999", "Total households - $15,000 to $24,999"],
+    "Middle Income - Households" : ["Total households - $25,000 to $34,999", "Total households - $35,000 to $49,999", "Total households - $50,000 to $74,999"],
+    "Upper Middle Income - Households" : ["Total households - $75,000 to $99,999", "Total households - $100,000 to $149,999"],
+    "High Income - Households" : ["Total households - $150,000 to $199,999", "Total households - $200,000 or more"],
+    "Low Income - Families" : ["Families - Less than $10,000", "Families - $10,000 to $14,999", "Families - $15,000 to $24,999"],
+    "Middle Income - Families" : ["Families - $25,000 to $34,999", "Families - $35,000 to $49,999", "Families - $50,000 to $74,999"],
+    "Upper Middle Income - Families" : ["Families - $75,000 to $99,999", "Families - $100,000 to $149,999"],
+    "High Income - Families" : ["Families - $150,000 to $199,999", "Families - $200,000 or more"]
+}
+
+for new_col, cols in column_groups.items():
+    econmetrics =  sum_columns(econmetrics, cols, new_col)
 
 save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
+save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
 
