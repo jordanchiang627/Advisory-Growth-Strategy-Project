@@ -57,6 +57,21 @@ column_groups = {
 for new_col, cols in column_groups.items():
     econmetrics =  sum_columns(econmetrics, cols, new_col)
 
+econ_prop_groups = {
+    "Proportion: Low Income - Households" : ["Low Income - Households", "Total households"],
+    "Proportion: Middle Income - Households" : ["Middle Income - Households", "Total households"],
+    "Proportion: Upper Middle Income - Households" : ["Upper Middle Income - Households", "Total households"],
+    "Proportion: High Income - Households" : ["High Income - Households", "Total households"],
+    "Proportion: Low Income - Families" : ["Low Income - Families", "Families"],
+    "Proportion: Middle Income - Families" : ["Middle Income - Families", "Families"],
+    "Proportion: Upper Middle Income - Families" : ["Upper Middle Income - Families", "Families"],
+    "Proportion: High Income - Families" : ["High Income - Families", "Families"]
+}
+
+for new_column, (col1, col2) in econ_prop_groups.items():
+    econmetrics = age_proportions(econmetrics, col1, col2, new_column)
+
+
 save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
 save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
 
