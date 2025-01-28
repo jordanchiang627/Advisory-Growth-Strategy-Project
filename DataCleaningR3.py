@@ -71,6 +71,10 @@ econ_prop_groups = {
 for new_column, (col1, col2) in econ_prop_groups.items():
     econmetrics = age_proportions(econmetrics, col1, col2, new_column)
 
+econmetrics = econmetrics[["Geography", "Geographic Area Name", "Total households", "Total households - Median household income (dollars)", "Families", "Families - Median family income (dollars)", "Low Income - Households",
+"Proportion: Low Income - Households", "Middle Income - Households", "Proportion: Middle Income - Households",  "Upper Middle Income - Households",  "Proportion: Upper Middle Income - Households",
+"High Income - Households", "Proportion: High Income - Households", "Low Income - Families", "Proportion: Low Income - Families", "Middle Income - Families", "Proportion: Middle Income - Families",
+"Upper Middle Income - Families", "Proportion: Upper Middle Income - Families", "High Income - Families", "Proportion: High Income - Families"]]
 
 save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
 save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
