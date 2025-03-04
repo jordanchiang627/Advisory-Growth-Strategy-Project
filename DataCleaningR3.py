@@ -113,7 +113,19 @@ for cols in household_coladd.values():
         if col in households.columns:
             households = households.drop(col, axis = 1)
 
+households = households.drop("Total: Households with own children of the householder under 18 years", axis = 1)
 
-#save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
-#save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
+house_prop_groups = {
+    "Proportion - Families" : ["Total: Total families", "Total: Total households"],
+    "Proportion - Nonfamilies" : ["Nonfamily household: Total households", "Total: Total households"],
+    "Proportion - Family households with children under 18" : ["Total family households with children under 18", "Total: Total households"],
+    "Proportion - Single parent households" : ["Total single parent households", "Total: Total households"],
+    "Proportion - Married-couple households" : ["Total married-couple households", "Total: Total households"]
+}
+
+for new_column, (col1, col2) in house_prop_groups.items():
+    households = age_proportions(households, col1, col2, new_column)
+
+save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
+save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
 save_csv(households, "CleanedDataR3/households_r3.csv")
