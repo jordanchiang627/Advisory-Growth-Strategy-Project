@@ -78,7 +78,7 @@ econmetrics = econmetrics[["Geography", "Geographic Area Name", "Total household
 
 households = pd.read_csv("CleanedDataR2/households_r2.csv")
 
-keep_columns = ["Nonfmaily household: Average household size", "Total: Average household size", "Total: Average family size"]
+keep_columns = ["Nonfamily household: Average household size", "Total: Average household size", "Total: Average family size"]
 households = households.drop(
     households.select_dtypes(include=['float']).columns.difference(keep_columns),
     axis = 1
