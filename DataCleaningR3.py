@@ -99,6 +99,19 @@ for col in redundant_columns:
     if col in households.columns:
         households = households.drop(col, axis = 1)
 
+household_coladd = {
+    "Total family households with children under 18" : ["Married-couple family household: Households with own children of the householder under 18 years", "Male householder, no spouse present, family household: Households with own children of the householder under 18 years", "Female householder, no spouse present, family household: Households with own children of the householder under 18 years"],
+    "Total single parent households" : ["Male householder, no spouse present, family household: Total families", "Female householder, no spouse present, family household: Total families"],
+    "Total married-couple households" : ["Married-couple family household: Total families", "Married-couple family household: Households with own children of the householder under 18 years"]
+}
+
+for new_col, cols in household_coladd.items():
+    households =  sum_columns(households, cols, new_col)
+
+for cols in household_coladd.values():
+    for col in cols:
+        if col in households.columns:
+            households = households.drop(col, axis = 1)
 
 
 #save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
