@@ -84,6 +84,22 @@ households = households.drop(
     axis = 1
 )
 
+redundant_columns = [
+    "Total - Total households",
+    "Married-couple family household: Total households",
+    "Married-couple family household - Total households",
+    "Male householder, no spouse present, family household: Total households",
+    "Male householder, no spouse present, family household - Total households",
+    "Female householder, no spouse present, family household: Total households",
+    "Female householder, no spouse present, family household - Total households",
+    "Nonfamily household - Total households"
+]
+
+for col in redundant_columns:
+    if col in households.columns:
+        households = households.drop(col, axis = 1)
+
+
 #save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
 #save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
 save_csv(households, "CleanedDataR3/households_r3.csv")
