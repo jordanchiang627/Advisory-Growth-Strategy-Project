@@ -137,6 +137,15 @@ for col in education.columns:
         drop24.append(col)
 education = education.drop(drop24, axis = 1)
 
+cleaned_names = []
+for name in education.columns:
+    if "Population 25 years and over with earnings - " in name:
+        cleaned_name = name.replace("Population 25 years and over with earnings - ", "").strip()
+        cleaned_names.append(cleaned_name)
+    else:
+        cleaned_names.append(name.strip())
+education.columns = cleaned_names
+
 #save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
 #save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
 #save_csv(households, "CleanedDataR3/households_r3.csv")
