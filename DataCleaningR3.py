@@ -126,6 +126,18 @@ house_prop_groups = {
 for new_column, (col1, col2) in house_prop_groups.items():
     households = age_proportions(households, col1, col2, new_column)
 
-save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
-save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
-save_csv(households, "CleanedDataR3/households_r3.csv")
+education = pd.read_csv("CleanedDataR2/education_r2.csv")
+
+edrop_cols = ["Population 25 years and over - High school graduate or higher", "Population 25 years and over - Bachelor's degree or higher"]
+education = education.drop(edrop_cols, axis = 1)
+
+drop24 = []
+for col in education.columns:
+    if "24 years" in col:
+        drop24.append(col)
+education = education.drop(drop24, axis = 1)
+
+#save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
+#save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
+#save_csv(households, "CleanedDataR3/households_r3.csv")
+save_csv(education, "CleanedData/education_r3.csv")
