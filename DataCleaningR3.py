@@ -139,7 +139,7 @@ education = education.drop(drop24, axis = 1)
 
 drop25 = []
 for col in education.columns:
-    if "Population 25 years and over -" in col:
+    if "Population 25 years and over with earnings -" in col:
         drop25.append(col)
 education = education.drop(drop25, axis =1 )
 
