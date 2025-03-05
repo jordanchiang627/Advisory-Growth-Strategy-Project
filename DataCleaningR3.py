@@ -146,7 +146,20 @@ for name in education.columns:
         cleaned_names.append(name.strip())
 education.columns = cleaned_names
 
-#save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
-#save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
-#save_csv(households, "CleanedDataR3/households_r3.csv")
+education_prop_groups = {
+    "Proportion - Less than 9th Grade" : ["Population 25 years and over - Less than 9th grade", "Population 25 years and over"],
+    "Proportion - 9th - 12th, No Diploma" : ["Population 25 years and over - 9th to 12th grade, no diploma", "Population 25 years and over"],
+    "Proportion - High School" : ["Population 25 years and over - High school graduate (includes equivalency)", "Population 25 years and over"],
+    "Proportion - Some College, No Degree" : ["Population 25 years and over - Some college, no degree", "Population 25 years and over"],
+    "Proportion - Associate's" : ["Population 25 years and over - Associate's degree", "Population 25 years and over"],
+    "Proportion - Bacholer's" : ["Population 25 years and over - Bachelor's degree", "Population 25 years and over"],
+    "Proportion - Advanced Degree" : ["Population 25 years and over - Graduate or professional degree", "Population 25 years and over"]
+}
+
+for new_column, (col1, col2) in education_prop_groups.items():
+    education = age_proportions(education, col1, col2, new_column)
+
+save_csv(demographics, "CleanedDataR3/demographics_r3.csv")
+save_csv(econmetrics, "CleanedDataR3/econmetrics_r3.csv")
+save_csv(households, "CleanedDataR3/households_r3.csv")
 save_csv(education, "CleanedDataR3/education_r3.csv")
